@@ -6,7 +6,7 @@
 /*   By: bakgun <bakgun@student.42kocaeli.com.tr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:06:48 by bakgun            #+#    #+#             */
-/*   Updated: 2023/07/05 10:46:58 by bakgun           ###   ########.fr       */
+/*   Updated: 2023/07/10 10:30:21 by bakgun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,17 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	while (*s != '\0')
+	if (!s)
+		return (NULL);
+	while (*s)
 	{
-		if (*s == c)
+		if (*s == (char)c)
 		{
 			return ((char *)s);
 		}
 		s++;
 	}
-	if (c == '\0')
+	if (!c)
 	{
 		return ((char *)s);
 	}

@@ -6,7 +6,7 @@
 /*   By: bakgun <bakgun@student.42kocaeli.com.tr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 16:55:51 by bakgun            #+#    #+#             */
-/*   Updated: 2023/07/04 17:57:15 by bakgun           ###   ########.fr       */
+/*   Updated: 2023/07/07 15:25:19 by bakgun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	size_t	i;
 	size_t	j;
 
+	dstlen = 0;
 	while (dst[dstlen])
 		dstlen++;
+	srclen = 0;
 	while (src[srclen])
 		srclen++;
 	j = dstlen;
@@ -29,9 +31,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	{
 		while (src[i] && dstlen + i < dstsize - 1)
 		{
-			dst[j] = src[i];
-			j++;
-			i++;
+			dst[j++] = src[i++];
 		}
 		dst[j] = '\0';
 	}

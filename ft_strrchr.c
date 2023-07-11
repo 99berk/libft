@@ -6,7 +6,7 @@
 /*   By: bakgun <bakgun@student.42kocaeli.com.tr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:48:36 by bakgun            #+#    #+#             */
-/*   Updated: 2023/07/05 11:31:14 by bakgun           ###   ########.fr       */
+/*   Updated: 2023/07/09 18:50:39 by bakgun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,13 @@ char	*ft_strrchr(const char *s, int c)
 {
 	char	*last_occurrence;
 
+	if (!s)
+		return (NULL);
+	last_occurrence = 0;
+	if (c > 126)
+	{
+		return (last_occurrence = (char *)s);
+	}
 	while (*s != '\0')
 	{
 		if (*s == c)

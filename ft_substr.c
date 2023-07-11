@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bakgun <bakgun@student.42kocaeli.com.tr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/04 11:28:37 by bakgun            #+#    #+#             */
-/*   Updated: 2023/07/07 15:42:24 by bakgun           ###   ########.fr       */
+/*   Created: 2023/07/06 13:16:47 by bakgun            #+#    #+#             */
+/*   Updated: 2023/07/10 15:14:02 by bakgun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
-
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	i;
+	char	*str;
 
-	if (!dst)
+	if (!s)
+	{
+		return (NULL);
+	}
+	str = (char *)malloc((len + 1) * sizeof(char));
+	if (!str)
 	{
 		return (NULL);
 	}
 	i = 0;
-	while (n > i)
-	{
-		*(char *)(dst + i) = *(char *)(src + i);
+	while ((len > i) && (start < ft_strlen(s)) && (s[start] != 0))
+	{		
+		str[i] = s[start + i];
 		i++;
 	}
-	return (dst);
+	str[i] = 0;
+	return (str);
 }

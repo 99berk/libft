@@ -6,7 +6,7 @@
 /*   By: bakgun <bakgun@student.42kocaeli.com.tr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 11:35:09 by bakgun            #+#    #+#             */
-/*   Updated: 2023/07/05 13:15:04 by bakgun           ###   ########.fr       */
+/*   Updated: 2023/07/10 11:03:37 by bakgun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	{
 		if (*s1 != *s2)
 		{
-			return (*s1 - *s2);
+			return (*(unsigned char *)s1 - *(unsigned char *)s2);
 		}
 		s1++;
 		s2++;
@@ -28,5 +28,5 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	{
 		return (0);
 	}
-	return (*s1 - *s2);
+	return (*(unsigned char *)s1 - *(unsigned char *)s2);
 }
