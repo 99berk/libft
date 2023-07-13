@@ -19,6 +19,8 @@ char	*ft_strdup(const char *s1)
 
 	counter = 0;
 	str = (char *)malloc(ft_strlen(s1) * sizeof(char) + 1);
+	if (!str)
+		return (NULL);
 	while (s1[counter] != '\0')
 	{
 		str[counter] = s1[counter];

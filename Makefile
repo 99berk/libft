@@ -1,13 +1,9 @@
-#projemin ismi
 NAME	=	libft.a
 
-#derleyici + derleme ekleri 
-# -I (include) Specifies a directory dir to search for included makefiles.
 CC	=	gcc
 CFLAGS	=	-Wall -Wextra -Werror
 RM	=	rm -f
 
-#.c uzantılı dosyalar
 SRC	=	ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c\
 ft_isprint.c ft_memchr.c ft_memcmp.c ft_striteri.c\
 ft_memcpy.c ft_memmove.c ft_memset.c ft_putendl_fd.c\
@@ -18,7 +14,6 @@ ft_strlen.c ft_strncmp.c ft_substr.c ft_strtrim.c\
 ft_strnstr.c ft_strrchr.c ft_strjoin.c\
 ft_tolower.c ft_toupper.c ft_strlcat.c
 
-#Object dosyaları
 OBJ	=	$(SRC:.c=.o)
 
 B = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c\
@@ -42,6 +37,4 @@ fclean:	clean
 
 re:	fclean $(NAME)
 
-# Bir fonksiyon olarak görmesini sağlıyorum
-# Aynı ada sahip bir dosyayla çakışmayı önlemek ve performansı artırmak için.
 .PHONY: all clean fclean re

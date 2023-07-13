@@ -36,7 +36,7 @@ static char	*ft_getword(char const *s, char c, int i)
 	if (!str)
 		return (NULL);
 	j = 0;
-	while (*(s + i) && *(s + i) != c)
+	while (*(s + i) != 0 && *(s + i) != c)
 	{
 		str[j] = *(s + i);
 		j++;
@@ -55,7 +55,7 @@ static int	ft_countofword(char const *s, char c)
 	countword = 0;
 	while (*(s + i))
 	{
-		while (*(s + i) == c)
+		while (*(s + i) == c && *(s + i) != 0)
 		{
 			i++;
 		}
@@ -63,7 +63,8 @@ static int	ft_countofword(char const *s, char c)
 		{
 			countword++;
 		}
-		i++;
+		while (*(s + i) != c && *(s + i) != 0)
+			i++;
 	}
 	return (countword);
 }
@@ -83,7 +84,7 @@ char	**ft_split(char const *s, char c)
 	j = 0;
 	while (*(s + i))
 	{
-		while (*(s + i) == c)
+		while (*(s + i) == c && *(s + i) != 0)
 			i++;
 		if (*(s + i))
 		{

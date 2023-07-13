@@ -6,7 +6,7 @@
 /*   By: bakgun <bakgun@student.42kocaeli.com.tr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 16:55:51 by bakgun            #+#    #+#             */
-/*   Updated: 2023/07/07 15:25:19 by bakgun           ###   ########.fr       */
+/*   Updated: 2023/07/13 10:30:25 by bakgun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	size_t	i;
 	size_t	j;
 
+	if (dst == NULL)
+		return (0);
 	dstlen = 0;
-	while (dst[dstlen])
-		dstlen++;
+	dstlen = ft_strlen(dst);
 	srclen = 0;
-	while (src[srclen])
-		srclen++;
+	srclen = ft_strlen(src);
 	j = dstlen;
 	i = 0;
 	if (dstlen < dstsize - 1 && dstsize > 0)
