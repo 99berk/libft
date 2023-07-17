@@ -34,7 +34,10 @@ static char	*ft_getword(char const *s, char c, int i)
 	len = ft_wlen(s, c, i);
 	str = (char *)malloc((len + 1) * sizeof(char));
 	if (!str)
+	{
+		free(str);
 		return (NULL);
+	}
 	j = 0;
 	while (*(s + i) != 0 && *(s + i) != c)
 	{
@@ -79,7 +82,7 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	str = (char **)malloc((ft_countofword(s, c) + 1) * sizeof(char *));
 	if (!str)
-		return (NULL);
+		return (free(str), NULL);
 	i = 0;
 	j = 0;
 	while (*(s + i))
