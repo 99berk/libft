@@ -72,6 +72,20 @@ static int	ft_countofword(char const *s, char c)
 	return (countword);
 }
 
+static char	**ft_allfree(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
+	return (NULL);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**str;
@@ -92,24 +106,11 @@ char	**ft_split(char const *s, char c)
 		if (*(s + i))
 		{
 			str[j] = ft_getword(s, c, i);
-			j++;
+			if (!str[j++])
+				return (ft_allfree(str));
 		}
 		while (*(s + i) != c && *(s + i) != 0)
 			i++;
 	}
-	str[j] = 0;
-	return (str);
+	return (str[j] = 0, str);
 }
-/*
-#include <stdio.h>
-int main ()
-{
-	const char *str = " hello, world,how,  are, you ";
-	char **r = ft_split(str, ' ');
-	int i = 0;
-	while (r[i])
-	{
-		printf("%s\n", r[i]);
-		i++;
-	}
-}*/
